@@ -1,10 +1,15 @@
 import React from "react"
-import {
-  Box,
-} from "@chakra-ui/react"
+
+import PlayList from "./components/PlayList";
+import { Flex} from "@chakra-ui/react";
+import Player from "./components/Player";
 
 export const App = () => {
-  return (<Box>
-    test
-  </Box>)
+  return (
+    <Flex w="100vw" h="100vh" overflow="hidden">
+      <PlayList />
+      <Player />
+    </Flex>
+
+  )
 }
