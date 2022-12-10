@@ -19,10 +19,10 @@ const Player = () => {
     <Flex w="100%" h="100%" px="8rem" py="5rem" flexDirection="column" justifyContent="center" alignItems="center">
       <Image h="20rem" w="20rem" src={currentAudio.cover} alt={currentAudio.name + currentAudio.artist}
              borderRadius="30px"/>
-        <Text>
+        <Text pt="5rem" fontSize="0.75rem" color="grey">
           { currentAudio.artist}
         </Text>
-      <Text>
+      <Text py="4rem" fontSize="2rem">
         { currentAudio.name}
       </Text>
       <AudioController />

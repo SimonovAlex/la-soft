@@ -1,22 +1,20 @@
 import React from 'react';
 import {ButtonGroup, Flex, IconButton} from "@chakra-ui/react";
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { ReactComponent as StartIcon }  from "../../icons/start.svg";
-
+import { ReactComponent as PlayIcon}  from "../../icons/play.svg";
+import { ReactComponent as StopIcon}  from "../../icons/stop.svg";
+import { ReactComponent as PreviousIcon}  from "../../icons/previous.svg";
+import { ReactComponent as NextIcon}  from "../../icons/next.svg";
 
 import ProgressBar from "./ProgressBar";
 
 const AudioController = () => {
   return (
-    <Flex w="100%">
+    <Flex w="100%" direction="column">
       <ProgressBar />
-      <Flex>
-        <ButtonGroup>
-          <IconButton icon={<ChevronLeftIcon />}  aria-label='previous'/>
-          <IconButton icon={<StartIcon />}  aria-label='start stop'/>
-          <IconButton icon={<ChevronRightIcon />}  aria-label='next'/>
-        </ButtonGroup>
-
+      <Flex justifyContent="space-around" mt="4rem" >
+          <IconButton icon={<PreviousIcon />}  bg='transparent' aria-label='previous'/>
+          <IconButton icon={<PlayIcon />} bg='transparent' aria-label='start stop'/>
+          <IconButton icon={<NextIcon />} bg='transparent' aria-label='next'/>
       </Flex>
     </Flex>
   );
