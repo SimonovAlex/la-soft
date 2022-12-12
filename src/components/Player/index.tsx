@@ -1,6 +1,5 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import {Flex, Image, Text} from "@chakra-ui/react";
-import {v4 as uuidv4} from "uuid";
 import AudioController from "./AudioController";
 import {useListController} from "../../hooks/useListController";
 
