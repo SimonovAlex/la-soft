@@ -1,26 +1,38 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Box, Flex, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Tooltip} from "@chakra-ui/react";
+import {getDisplayTimeBySeconds} from "../../utils";
 
-const ProgressBar = () => {
-  const [sliderValue, setSliderValue] = React.useState(5)
-  const [showTooltip, setShowTooltip] = React.useState(false)
+interface Props {
+  duration: number,
+  progress: number,
+  onChangeTime: (v: number) => void;
+}
+
+const ProgressBar: FC<Props> = ({
+                                  duration,
+                                  progress,
+                                  onChangeTime,
+                                }) => {
+  const [showTooltip, setShowTooltip] = React.useState(false);
+
   return (
     <Flex>
       <Box px="2rem">
-        00:00
+        {getDisplayTimeBySeconds(progress, duration)}
       </Box>
       <Slider
         id='slider'
-        defaultValue={5}
+        defaultValue={0}
+        value={progress}
         min={0}
-        max={100}
+        max={duration}
         colorScheme='teal'
-        onChange={(v) => setSliderValue(v)}
+        onChange={onChangeTime}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
       >
         <SliderTrack>
-          <SliderFilledTrack />
+          <SliderFilledTrack/>
         </SliderTrack>
         <Tooltip
           hasArrow
@@ -28,16 +40,15 @@ const ProgressBar = () => {
           color='white'
           placement='top'
           isOpen={showTooltip}
-          label={`${sliderValue}%`}
+          label={getDisplayTimeBySeconds(progress, duration)}
         >
-          <SliderThumb />
+          <SliderThumb/>
         </Tooltip>
       </Slider>
       <Box px="2rem">
-        00:00
+        {getDisplayTimeBySeconds(duration, duration)}
       </Box>
     </Flex>
-
   );
 };
 

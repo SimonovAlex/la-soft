@@ -3,7 +3,6 @@ export interface Music {
   cover: string,
   artist: string,
   audio: string,
-  color: string[],
+  color: [string, string],
   id: string,
-  active: boolean,
 }
